@@ -1,68 +1,73 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-	<modelVersion>4.0.0</modelVersion>
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
 
-	<groupId>in.RAHAM</groupId>
-	<artifactId>NETFLIX</artifactId>
-	<packaging>war</packaging>
-	<version>1.2.3</version>  <!-- Incremented the version from 1.2.2 to 1.2.3 -->
-	<name>Java Home myweb</name>
-	<url>http://maven.apache.org</url>
-	
-	<properties>
-		<docker.image.prefix>kammana</docker.image.prefix>
-		<maven.compiler.source>8</maven.compiler.source>  <!-- Set Java 8 -->
-		<maven.compiler.target>8</maven.compiler.target>  <!-- Set Java 8 -->
-	</properties>	
+    <groupId>in.RAHAM</groupId>
+    <artifactId>NETFLIX</artifactId>
+    <packaging>war</packaging>
+    <version>1.2.3</version> <!-- Incremented version from 1.2.2 to 1.2.3 -->
+    <name>Java Home myweb</name>
+    <url>http://maven.apache.org</url>
 
-	<dependencies>
-		<dependency>
-		    <groupId>com.oracle.bedrock</groupId>
-		    <artifactId>bedrock-runtime-maven</artifactId>
-		    <version>5.1.2</version>
-		</dependency>
-		
-		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<version>4.12</version>  <!-- Updated JUnit version from 3.8.1 to 4.12 -->
-			<scope>test</scope>
-		</dependency>
-	</dependencies>
+    <!-- Set properties for compiler version -->
+    <properties>
+        <maven.compiler.source>1.8</maven.compiler.source>  <!-- Set Java 8 -->
+        <maven.compiler.target>1.8</maven.compiler.target>  <!-- Set Java 8 -->
+        <docker.image.prefix>kammana</docker.image.prefix>
+    </properties>
 
-	<build>
-		<plugins>
-			<plugin>
-    <groupId>org.apache.maven.plugins</groupId>
-    <artifactId>maven-compiler-plugin</artifactId>
-    <version>3.8.1</version>  <!-- Use latest stable version -->
-    <configuration>
-        <source>8</source>
-        <target>8</target>
-    </configuration>
-</plugin>
+    <dependencies>
+        <dependency>
+            <groupId>com.oracle.bedrock</groupId>
+            <artifactId>bedrock-runtime-maven</artifactId>
+            <version>5.1.2</version>
+        </dependency>
+        
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.12</version> <!-- Updated JUnit version from 3.8.1 to 4.12 -->
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
 
-		</plugins>
-	</build>
+    <build>
+        <plugins>
+            <!-- Maven Compiler Plugin to specify Java version -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.1</version>  <!-- Use latest stable version -->
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                </configuration>
+            </plugin>
 
-	<distributionManagement>
-		 <snapshotRepository>
-		    <id>nexusRepo</id>
-		    <url>http://13.233.230.166:8081/repository/maven-snapshots/</url>
-		 </snapshotRepository>
-		
-		<repository>
-		    <id>nexusRepo</id>
-		    <url>http://13.233.230.166:8081/repository/maven-releases/</url>
-		</repository>
-  	</distributionManagement>
-	
-	<pluginRepositories>
-	    <pluginRepository>    
-		<id>maven1</id>
-		<name>Maven.org</name>
-		<url>http://repo1.maven.org/maven2</url>
-	    </pluginRepository>
-	</pluginRepositories>
+            <!-- Add other plugins as required -->
+        </plugins>
+    </build>
+
+    <!-- Distribution Management (Nexus Repositories) -->
+    <distributionManagement>
+        <snapshotRepository>
+            <id>nexusRepo</id>
+            <url>http://13.233.230.166:8081/repository/maven-snapshots/</url>
+        </snapshotRepository>
+        
+        <repository>
+            <id>nexusRepo</id>
+            <url>http://13.233.230.166:8081/repository/maven-releases/</url>
+        </repository>
+    </distributionManagement>
+
+    <!-- Plugin Repositories -->
+    <pluginRepositories>
+        <pluginRepository>
+            <id>maven1</id>
+            <name>Maven.org</name>
+            <url>http://repo1.maven.org/maven2</url>
+        </pluginRepository>
+    </pluginRepositories>
 
 </project>
